@@ -209,7 +209,7 @@ async function syncDepartmentPayouts(department) {
   const payouts = (state.payoutsByDept[department] || []).map(toStorablePayout);
   await dbRequest('appendDepartment', {
     department,
-    payouts
+    payout
   });
 }
 
