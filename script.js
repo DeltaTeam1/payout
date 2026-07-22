@@ -59,6 +59,10 @@ const DEPARTMENTS = Object.keys(DEPARTMENT_AUTH);
 
 const DB_CONFIG = {
   enabled: Boolean(window.GOOGLE_SHEETS_DB && window.GOOGLE_SHEETS_DB.enabled),
+  useProxy: Boolean(window.GOOGLE_SHEETS_DB && window.GOOGLE_SHEETS_DB.useProxy),
+  proxyEndpoint: window.GOOGLE_SHEETS_DB && window.GOOGLE_SHEETS_DB.proxyEndpoint
+    ? String(window.GOOGLE_SHEETS_DB.proxyEndpoint).trim()
+    : '',
   endpoint: window.GOOGLE_SHEETS_DB && window.GOOGLE_SHEETS_DB.endpoint
     ? String(window.GOOGLE_SHEETS_DB.endpoint).trim()
     : '',
@@ -103,7 +107,15 @@ function addHistory(message) {
 }
 
 function isDatabaseEnabled() {
-  return DB_CONFIG.enabled && DB_CONFIG.endpoint.length > 0;
+  return DB_CONFIG.enabled && getDatabaseEndpoint().length > 0;
+}
+
+function getDatabaseEndpoint() {
+  if (DB_CONFIG.useProxy && DB_CONFIG.proxyEndpoint.length > 0) {
+    return DB_CONFIG.proxyEndpoint;
+  }
+
+  return DB_CONFIG.endpoint;
 }
 
 function toStorablePayout(payout) {
@@ -143,7 +155,7 @@ async function dbRequest(action, payload) {
   const timeout = setTimeout(() => controller.abort(), DB_CONFIG.timeoutMs);
 
   try {
-    const response = await fetch(DB_CONFIG.endpoint, {
+    const response = await fetch(getDatabaseEndpoint(), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

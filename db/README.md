@@ -28,6 +28,22 @@ Die Apps-Script-Datei legt automatisch folgende Tabellenblaetter an:
    - `enabled: true`
    - `endpoint: 'DEINE_WEB_APP_URL'`
 
+## Lokaler Proxy (empfohlen wegen CORS)
+
+Direkte Browser-Aufrufe auf Google Apps Script werden oft durch CORS blockiert.
+Nutze daher den lokalen Proxy:
+
+1. Stelle sicher, dass in [googleSheetsConfig.js](googleSheetsConfig.js) folgendes gesetzt ist:
+   - `useProxy: true`
+   - `proxyEndpoint: 'http://127.0.0.1:8787/api/sheets'`
+2. Starte den Proxy im Projektroot:
+   - `node db/googleSheetsProxyServer.js`
+3. Starte danach deine Website wie gewohnt.
+
+Optional kannst du den Endpoint auch per Umgebungsvariable setzen:
+
+- `APPS_SCRIPT_ENDPOINT='DEINE_WEB_APP_URL' node db/googleSheetsProxyServer.js`
+
 ## Hinweise
 
 - Bei jedem Erstellen/Statuswechsel/Loeschen wird das jeweilige Abteilungsblatt synchronisiert.
