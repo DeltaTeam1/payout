@@ -207,7 +207,7 @@ async function syncDepartmentPayouts(department) {
   }
 
   const payouts = (state.payoutsByDept[department] || []).map(toStorablePayout);
-  await dbRequest('replaceDepartment', {
+  await dbRequest('appendDepartment', {
     department,
     payouts
   });
