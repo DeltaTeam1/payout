@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auszahlungssystem Einsatzkommando</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <main class="app-shell">
+    <header class="app-header panel">
+      <p class="kicker">TACTICAL FINANCE CORE</p>
+      <h1>Auszahlungs System</h1>
+      <p class="subtitle">Dynamisches Verwaltungssystem fuer Einheiten und Generalbereich</p>
+    </header>
+
+    <section class="unit-grid" id="unitGrid">
+      <article class="panel unit-card" data-unit="Infanterie">
+        <h2>Infanterie</h2>
+        <p class="unit-desc">Abteilungszugang nur per Passwort</p>
+        <label>
+          Passwort
+          <input type="password" class="dept-password" autocomplete="off" placeholder="Passwort eingeben" />
+        </label>
+        <button class="action-btn dept-login-btn" type="button">Login</button>
+        <p class="unit-status" aria-live="polite">Nicht authentifiziert</p>
+        <div class="payout-form is-hidden">
+          <p class="form-kicker">Neue Auszahlung</p>
+          <label>
+            Auszahlungs Datum
+            <input type="date" class="payout-date" />
+          </label>
+          <label>
+            Wer hat ausgezahlt (Name/ID)
+            <input type="text" class="paid-by" placeholder="Name/ID" />
+          </label>
+          <label>
+            Wer wurde ausgezahlt (Name/ID)
+            <input type="text" class="paid-to" placeholder="Name/ID" />
+          </label>
+          <label>
+            Betrag in $
+            <input type="number" class="payout-amount" min="0" step="0.01" placeholder="0.00" />
+          </label>
+          <label>
+            Wofuer wurde ausgezahlt
+            <input type="text" class="payout-reason" placeholder="Verwendungszweck" />
+          </label>
+          <label>
+            Passwort bestaetigen
+            <input type="password" class="payout-confirm-password" autocomplete="off" placeholder="Passwort erneut eingeben" />
+          </label>
+          <button class="action-btn payout-submit-btn" type="button">Auszahlung eintragen</button>
+          <p class="payout-feedback" aria-live="polite"></p>
+        </div>
+      </article>
+
+      <article class="panel unit-card" data-unit="Human Resource">
+        <h2>Human Resource</h2>
+        <p class="unit-desc">Abteilungszugang nur per Passwort</p>
+        <label>
+          Passwort
+          <input type="password" class="dept-password" autocomplete="off" placeholder="Passwort eingeben" />
+        </label>
+        <button class="action-btn dept-login-btn" type="button">Login</button>
+        <p class="unit-status" aria-live="polite">Nicht authentifiziert</p>
+        <div class="payout-form is-hidden">
+          <p class="form-kicker">Neue Auszahlung</p>
+          <label>
+            Auszahlungs Datum
+            <input type="date" class="payout-date" />
+          </label>
+          <label>
+            Wer hat ausgezahlt (Name/ID)
+            <input type="text" class="paid-by" placeholder="Name/ID" />
+          </label>
+          <label>
+            Wer wurde ausgezahlt (Name/ID)
+            <input type="text" class="paid-to" placeholder="Name/ID" />
+          </label>
+          <label>
+            Betrag in $
+            <input type="number" class="payout-amount" min="0" step="0.01" placeholder="0.00" />
+          </label>
+          <label>
+            Wofuer wurde ausgezahlt
+            <input type="text" class="payout-reason" placeholder="Verwendungszweck" />
+          </label>
+          <label>
+            Passwort bestaetigen
+            <input type="password" class="payout-confirm-password" autocomplete="off" placeholder="Passwort erneut eingeben" />
+          </label>
+          <button class="action-btn payout-submit-btn" type="button">Auszahlung eintragen</button>
+          <p class="payout-feedback" aria-live="polite"></p>
+        </div>
+      </article>
+
+      <article class="panel unit-card" data-unit="Military Police">
+        <h2>Military Police</h2>
+        <p class="unit-desc">Abteilungszugang nur per Passwort</p>
+        <label>
+          Passwort
+          <input type="password" class="dept-password" autocomplete="off" placeholder="Passwort eingeben" />
+        </label>
+        <button class="action-btn dept-login-btn" type="button">Login</button>
+        <p class="unit-status" aria-live="polite">Nicht authentifiziert</p>
+        <div class="payout-form is-hidden">
+          <p class="form-kicker">Neue Auszahlung</p>
+          <label>
+            Auszahlungs Datum
+            <input type="date" class="payout-date" />
+          </label>
+          <label>
+            Wer hat ausgezahlt (Name/ID)
+            <input type="text" class="paid-by" placeholder="Name/ID" />
+          </label>
+          <label>
+            Wer wurde ausgezahlt (Name/ID)
+            <input type="text" class="paid-to" placeholder="Name/ID" />
+          </label>
+          <label>
+            Betrag in $
+            <input type="number" class="payout-amount" min="0" step="0.01" placeholder="0.00" />
+          </label>
+          <label>
+            Wofuer wurde ausgezahlt
+            <input type="text" class="payout-reason" placeholder="Verwendungszweck" />
+          </label>
+          <label>
+            Passwort bestaetigen
+            <input type="password" class="payout-confirm-password" autocomplete="off" placeholder="Passwort erneut eingeben" />
+          </label>
+          <button class="action-btn payout-submit-btn" type="button">Auszahlung eintragen</button>
+          <p class="payout-feedback" aria-live="polite"></p>
+        </div>
+      </article>
+
+      <article class="panel unit-card" data-unit="Special Force">
+        <h2>Special Force</h2>
+        <p class="unit-desc">Abteilungszugang nur per Passwort</p>
+        <label>
+          Passwort
+          <input type="password" class="dept-password" autocomplete="off" placeholder="Passwort eingeben" />
+        </label>
+        <button class="action-btn dept-login-btn" type="button">Login</button>
+        <p class="unit-status" aria-live="polite">Nicht authentifiziert</p>
+        <div class="payout-form is-hidden">
+          <p class="form-kicker">Neue Auszahlung</p>
+          <label>
+            Auszahlungs Datum
+            <input type="date" class="payout-date" />
+          </label>
+          <label>
+            Wer hat ausgezahlt (Name/ID)
+            <input type="text" class="paid-by" placeholder="Name/ID" />
+          </label>
+          <label>
+            Wer wurde ausgezahlt (Name/ID)
+            <input type="text" class="paid-to" placeholder="Name/ID" />
+          </label>
+          <label>
+            Betrag in $
+            <input type="number" class="payout-amount" min="0" step="0.01" placeholder="0.00" />
+          </label>
+          <label>
+            Wofuer wurde ausgezahlt
+            <input type="text" class="payout-reason" placeholder="Verwendungszweck" />
+          </label>
+          <label>
+            Passwort bestaetigen
+            <input type="password" class="payout-confirm-password" autocomplete="off" placeholder="Passwort erneut eingeben" />
+          </label>
+          <button class="action-btn payout-submit-btn" type="button">Auszahlung eintragen</button>
+          <p class="payout-feedback" aria-live="polite"></p>
+        </div>
+      </article>
+
+      <article class="panel unit-card" data-unit="Air Force">
+        <h2>Air Force</h2>
+        <p class="unit-desc">Abteilungszugang nur per Passwort</p>
+        <label>
+          Passwort
+          <input type="password" class="dept-password" autocomplete="off" placeholder="Passwort eingeben" />
+        </label>
+        <button class="action-btn dept-login-btn" type="button">Login</button>
+        <p class="unit-status" aria-live="polite">Nicht authentifiziert</p>
+        <div class="payout-form is-hidden">
+          <p class="form-kicker">Neue Auszahlung</p>
+          <label>
+            Auszahlungs Datum
+            <input type="date" class="payout-date" />
+          </label>
+          <label>
+            Wer hat ausgezahlt (Name/ID)
+            <input type="text" class="paid-by" placeholder="Name/ID" />
+          </label>
+          <label>
+            Wer wurde ausgezahlt (Name/ID)
+            <input type="text" class="paid-to" placeholder="Name/ID" />
+          </label>
+          <label>
+            Betrag in $
+            <input type="number" class="payout-amount" min="0" step="0.01" placeholder="0.00" />
+          </label>
+          <label>
+            Wofuer wurde ausgezahlt
+            <input type="text" class="payout-reason" placeholder="Verwendungszweck" />
+          </label>
+          <label>
+            Passwort bestaetigen
+            <input type="password" class="payout-confirm-password" autocomplete="off" placeholder="Passwort erneut eingeben" />
+          </label>
+          <button class="action-btn payout-submit-btn" type="button">Auszahlung eintragen</button>
+          <p class="payout-feedback" aria-live="polite"></p>
+        </div>
+      </article>
+    </section>
+
+    <section class="payout-modal" id="payoutModal" aria-hidden="true">
+      <div class="payout-modal-panel panel" role="dialog" aria-modal="true" aria-labelledby="payoutModalTitle">
+        <div class="payout-modal-header">
+          <div>
+            <p class="kicker">AUSZAHLUNGSMASKE</p>
+            <h2 id="payoutModalTitle">Neue Auszahlung</h2>
+          </div>
+          <button class="action-btn ghost" id="closePayoutModal" type="button">Schliessen</button>
+        </div>
+        <div class="payout-modal-grid">
+          <label>
+            Auszahlungs Datum
+            <input type="date" id="modalPayoutDate" />
+          </label>
+          <label>
+            Wer hat ausgezahlt (Name/ID)
+            <input type="text" id="modalPaidBy" placeholder="Name/ID" />
+          </label>
+          <label>
+            Wer wurde ausgezahlt (Name/ID)
+            <input type="text" id="modalPaidTo" placeholder="Name/ID" />
+          </label>
+          <label>
+            Betrag in $
+            <input type="number" id="modalPayoutAmount" min="0" step="0.01" placeholder="0.00" />
+          </label>
+          <label>
+            Wofuer wurde ausgezahlt
+            <input type="text" id="modalPayoutReason" placeholder="Verwendungszweck" />
+          </label>
+          <label>
+            Passwort bestaetigen
+            <input type="password" id="modalConfirmPassword" autocomplete="off" placeholder="Passwort erneut eingeben" />
+          </label>
+        </div>
+        <div class="payout-modal-actions">
+          <button class="action-btn" id="savePayoutModal" type="button">Auszahlung bestaetigen</button>
+          <button class="action-btn ghost" id="logoutFromModal" type="button">Logout</button>
+        </div>
+        <p class="payout-feedback" id="modalPayoutFeedback" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="panel security-gate" aria-label="Zugang General Bereich">
+      <div>
+        <p class="kicker">SECURITY LOCK</p>
+        <h2>Zugang General Bereich</h2>
+      </div>
+      <p class="security-note">Dieser Bereich ist geschuetzt und nur mit dem korrekten Passwort verfuegbar.</p>
+      <div class="security-controls">
+        <label>
+          Passwort
+          <input type="password" id="generalPassword" autocomplete="off" placeholder="Passwort eingeben" />
+        </label>
+        <button class="action-btn" id="unlockGeneral" type="button">Bereich entsperren</button>
+      </div>
+      <p class="security-feedback" id="securityFeedback" aria-live="polite"></p>
+    </section>
+
+    <section class="panel general-area is-locked" id="generalArea" aria-label="General Bereich">
+      <div>
+        <p class="kicker">COMMAND CENTER</p>
+        <h2>General Bereich</h2>
+      </div>
+      <p class="security-note">Hauptsicht zeigt Summen je Abteilung. Fuer Details eine Abteilung auswaehlen.</p>
+      <div class="general-actions">
+        <button class="action-btn ghost" id="resetAll" type="button">Logout Generalbereich</button>
+      </div>
+      <section class="analytics-grid" id="analyticsGrid" aria-label="Prozentuale Uebersicht"></section>
+      <div class="department-board" id="departmentBoard"></div>
+
+      <section class="general-dept-modal" id="generalDeptModal" aria-hidden="true">
+        <div class="general-dept-panel panel" role="dialog" aria-modal="true" aria-labelledby="generalDeptTitle">
+          <div class="general-dept-header">
+            <h3 id="generalDeptTitle">Abteilungs Auszahlungen</h3>
+            <button class="action-btn ghost" id="closeGeneralDeptModal" type="button">Zurueck</button>
+          </div>
+          <div class="payout-list" id="generalDeptPayoutList"></div>
+        </div>
+      </section>
+
+      <section class="history-panel">
+        <div>
+          <p class="kicker">LIVE LOG</p>
+          <h3>Einsatzprotokoll</h3>
+        </div>
+        <ul id="historyList" class="history-list">
+          <li>System bereit. Werte erfassen und Berechnung starten.</li>
+        </ul>
+      </section>
+    </section>
+  </main>
+
+  <script src="../db/googleSheetsConfig.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
