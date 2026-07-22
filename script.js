@@ -205,11 +205,11 @@ async function syncDepartmentPayouts(department) {
   if (!isDatabaseEnabled()) {
     return;
   }
-
   const payouts = (state.payoutsByDept[department] || []).map(toStorablePayout);
+  const neuesterEintrag = payouts[payouts.length - 1];
   await dbRequest('appendDepartment', {
-    department,
-    payout
+    department: department,
+    payout: neuesterEintrag
   });
 }
 
