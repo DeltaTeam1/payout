@@ -110,8 +110,13 @@ function isDatabaseEnabled() {
   return DB_CONFIG.enabled && getDatabaseEndpoint().length > 0;
 }
 
+function isLocalRuntime() {
+  const host = String(window.location.hostname || '').toLowerCase();
+  return host === 'localhost' || host === '127.0.0.1';
+}
+
 function getDatabaseEndpoint() {
-  if (DB_CONFIG.useProxy && DB_CONFIG.proxyEndpoint.length > 0) {
+  if (DB_CONFIG.useProxy && DB_CONFIG.proxyEndpoint.length > 0 && isLocalRuntime()) {
     return DB_CONFIG.proxyEndpoint;
   }
 
@@ -151,11 +156,33 @@ async function dbRequest(action, payload) {
     return null;
   }
 
+  const endpoint = getDatabaseEndpoint();
+  const isProxyEndpoint = endpoint === DB_CONFIG.proxyEndpoint;
+  const isAppsScriptEndpoint = endpoint.includes('script.google.com');
+  const useNoCorsWrite = !isProxyEndpoint && isAppsScriptEndpoint && action !== 'loadAll';
+
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), DB_CONFIG.timeoutMs);
 
   try {
-    const response = await fetch(getDatabaseEndpoint(), {
+    if (useNoCorsWrite) {
+      await fetch(endpoint, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'text/plain;charset=UTF-8'
+        },
+        body: JSON.stringify({ action, ...payload }),
+        signal: controller.signal
+      });
+
+      return {
+        success: true,
+        noCors: true
+      };
+    }
+
+    const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
